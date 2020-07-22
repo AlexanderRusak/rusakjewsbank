@@ -1,0 +1,13 @@
+.SignIn{
+  width:100%;
+  
+}
+.btnSection{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+ a{
+  color: black;
+}

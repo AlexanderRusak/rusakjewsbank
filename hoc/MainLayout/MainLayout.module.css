@@ -1,0 +1,8 @@
+.MainLayout {
+  background-image: url("https://onaturmorte.ru/wp-content/uploads/2019/04/Quentin_Metsys_-_Les_usuriers.jpg");
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  padding-bottom: 50px;
+  overflow: hidden;
+}

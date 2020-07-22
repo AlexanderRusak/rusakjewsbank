@@ -1,0 +1,27 @@
+.Chart {
+  display: flex;
+  flex-direction: row;
+}
+.dateInput {
+  display:flex;
+  width: 80%;
+}
+.dateInput div label {
+    color:#fff;
+}
+
+@media screen and (max-width:1200px){
+    .dateInput {
+        justify-content:flex-end;
+        flex-wrap: wrap;
+    }
+    .dateInput div{
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width:500px){
+    .dateInput {
+        display:flex;
+        width:auto;
+      }
+  }
