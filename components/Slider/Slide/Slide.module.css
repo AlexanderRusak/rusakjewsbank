@@ -18,9 +18,10 @@
   color: #762214;
 }
 .Slide a{
- align-self: flex-end;
- justify-self: end;
+ align-self: flex-start;
+ 
  padding: 1rem !important;
+ padding-left: 3rem !important;
  margin-top: 50px;
  font-size:1.5rem;
 }

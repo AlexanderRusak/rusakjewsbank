@@ -19,6 +19,7 @@ export default class SlickSlider extends React.Component {
           information={this.props.countSliders.information[key]}
           link={this.props.countSliders.link[key]}
           count={this.props.countSliders.title.length}
+          current={key+1}
         />
       );
     });
