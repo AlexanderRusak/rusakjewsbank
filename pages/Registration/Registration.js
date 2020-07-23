@@ -100,7 +100,7 @@ class Registration extends React.Component {
   isMatchPasswordCheck = () => {
     return this.state.pass === this.state.matchingPass ? true : false;
   };
-  ////for redux state
+ 
   registerHandler = () => {
     this.props.registration(this.state.email, this.state.pass, this.state.name);
     console.log(this.state.email, this.state.pass, this.state.name);
