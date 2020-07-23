@@ -12,15 +12,15 @@ export const Input = (props) => {
     setTouched(true);
     props.onChange && props.onChange(event.target.value, props.id && props.id);
   };
-////
+  ////
   touched && !props.valid && cls.push(classes.error);
-////
+  ////
   return (
     <div className={classes.Input}>
       {props.label && <label htmlFor={htmlFor}>{props.label}</label>}
       {props.type !== "textarea" ? (
         <input
-          value={props.value && props.value}
+          value={props.value && Math.round((props.value * 100) / 100)}
           placeholder={props.type !== "password" ? props.label : ""}
           onChange={onChangeTouched}
           id={htmlFor}
