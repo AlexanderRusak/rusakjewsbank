@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-self: flex-end;
-  
+  padding-right: 100px;
 }
 .Feedback textarea {
   font-size: 30px;
@@ -17,4 +17,23 @@ i {
 h3 {
   color: white;
   align-self: center;
+}
+.InputGroup {
+  display: flex;
+  justify-content: space-between;
+}
+.InputGroup div {
+  width: 95%;
+}
+.InputGroup i {
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding-top: 50px;
+  height: 30px;
+}
+.InputGroup i:hover {
+  color: rgb(143, 113, 113);
 }

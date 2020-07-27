@@ -6,12 +6,16 @@ import emailjs from "emailjs-com";
 import { Form } from "../../components/Form/Form";
 import { Button } from "../../components/UI/Button/Button";
 import { Input } from "../../components/UI/Input/Input";
+import { Label } from "../UI/Label/Label";
 
 export default function Feedback(props) {
   const [email, setEmail] = useState(props.userEmail);
   const [name, setName] = useState(props.userName);
   const [message, setMessage] = useState("");
 
+  const [inputName, setInputName] = useState(false);
+  const [inputEmail, setInputEmail] = useState(false);
+  const [inputArea, setInputArea] = useState(false);
 
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidName, setIsValidName] = useState(true);
@@ -68,38 +72,79 @@ export default function Feedback(props) {
   const validationMessage = (message) => {
     setIsValidMessage(message.length <= 5 ? false : true);
   };
-
+  const onToggleNameInput = () => {
+    setInputName(!inputName);
+  };
+  const onToggleEmailInput = () => {
+    setInputEmail(!inputEmail);
+  };
+  const onToggleAreaInput = () => {
+    setInputArea(!inputArea);
+  };
   return (
     <Form>
       <h3>Напишите нам</h3>
 
       <div className={classes.Feedback}>
-        <Input
-          label={"Ваше имя"}
-          type="text"
-          value={name}
-          valid={isValidName}
-          onChange={onChangeName}
-          errorMessage={"Введите имя"}
-        />
-        <Input
-          label={"Почта"}
-          value={email}
-          type="text"
-          valid={isValidEmail}
-          onChange={onChangeMail}
-          errorMessage={"Введите свою почту"}
-        />
-        <Input
-          label={"Сообщение"}
-          type="textarea"
-          cols="80"
-          rows="5"
-          value={message}
-          valid={isValidMessage}
-          onChange={onChangeMessage}
-          errorMessage={"Слишком короткое сообщение"}
-        />
+        <div className={classes.InputGroup}>
+          {inputName ? (
+            <Input
+              label={"Ваше имя"}
+              type="text"
+              value={name}
+              valid={isValidName}
+              onChange={onChangeName}
+              errorMessage={"Введите имя"}
+            />
+          ) : (
+            <Label label={"Ваше имя"} value={name} />
+          )}
+          {!inputName ? (
+            <i onClick={onToggleNameInput} className="fa fa-edit"></i>
+          ) : (
+            <i onClick={onToggleNameInput} className="fa fa-save"></i>
+          )}
+        </div>
+        <div className={classes.InputGroup}>
+          {inputEmail ? (
+            <Input
+              label={"Почта"}
+              value={email}
+              type="text"
+              valid={isValidEmail}
+              onChange={onChangeMail}
+              errorMessage={"Введите свою почту"}
+            />
+          ) : (
+            <Label label={"Почта"} value={email} />
+          )}
+          {!inputEmail ? (
+            <i onClick={onToggleEmailInput} className="fa fa-edit"></i>
+          ) : (
+            <i onClick={onToggleEmailInput} className="fa fa-save"></i>
+          )}
+        </div>
+        <div className={classes.InputGroup}>
+          {inputArea ? (
+            <Input
+              label={"Сообщение"}
+              type="textarea"
+              cols="80"
+              rows="5"
+              value={message}
+              valid={isValidMessage}
+              onChange={onChangeMessage}
+              errorMessage={"Слишком короткое сообщение"}
+            />
+          ) : (
+            <Label type="textarea" label="Сообщение" value={message} />
+          )}
+          {!inputArea ? (
+            <i onClick={onToggleAreaInput} className="fa fa-edit"></i>
+          ) : (
+            <i onClick={onToggleAreaInput} className="fa fa-save"></i>
+          )}
+        </div>
         <Button
           onClick={onSendEmail}
           disabled={isValidEmail && isValidMessage && isValidName}

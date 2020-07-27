@@ -1,5 +1,6 @@
 .Form {
-  width: 400px;
+  width: auto;
+  min-width: 400px;
   margin-left: 10px;
   margin-right: 10px;
   background-color: rgba(0, 0, 0, 0.5);
