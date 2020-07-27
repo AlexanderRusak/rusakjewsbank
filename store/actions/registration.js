@@ -1,4 +1,8 @@
-import { ERROR_INPUT_HANDLER, CLEAR_MESSAGE } from "./actionTypes";
+import {
+  ERROR_INPUT_HANDLER,
+  CLEAR_MESSAGE,
+  REGISTRATION_SUCCESS,
+} from "./actionTypes";
 import Axios from "axios";
 import { EMAIL_EXISTS } from "../../errorMessages";
 
@@ -14,22 +18,25 @@ export function registration(email, password, name) {
         "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDzNr9NyuiagPw6ZxKYVdWm12y38yhIj5o",
         authData
       );
-      const data = { name, email, id: response.data.localId };
-      console.log(data);
+
+      const data = {
+        name,
+        email,
+        id: response.data.localId,
+        feedback: null,
+      };
 
       await Axios.post(
         "https://rusakjewsbank-32815.firebaseio.com/users.json",
         data
-      )
-        .then((response) => console.log(response))
-        .catch((err) => console.log(err));
+      ).catch((err) => console.log(err));
+      dispatch(clearMessage());
+      dispatch(registrationSuccess("Пользователь успешно зарегестрирован"));
     } catch (err) {
       dispatch(clearMessage());
-      const errorMessage = err.response.data.error.errors[0].message;
+      const errorMessage = err.response.data.error.errors[0].message || null;
       errorMessage === EMAIL_EXISTS &&
-        dispatch(
-          errorInputHandler("Пользователь с данным email уже существует")
-        );
+        dispatch(errorInputHandler("Пользователь уже существует"));
     }
   };
 }
@@ -43,5 +50,11 @@ export function errorInputHandler(message) {
 export function clearMessage() {
   return {
     type: CLEAR_MESSAGE,
+  };
+}
+export function registrationSuccess(message) {
+  return {
+    type: REGISTRATION_SUCCESS,
+    message,
   };
 }

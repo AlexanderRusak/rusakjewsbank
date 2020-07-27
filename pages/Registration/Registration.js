@@ -14,6 +14,7 @@ class Registration extends React.Component {
     name: "",
     email: "",
     pass: "",
+    
     valid: false,
     //// for local state
 
@@ -100,10 +101,14 @@ class Registration extends React.Component {
   isMatchPasswordCheck = () => {
     return this.state.pass === this.state.matchingPass ? true : false;
   };
- 
+
   registerHandler = () => {
     this.props.registration(this.state.email, this.state.pass, this.state.name);
-    console.log(this.state.email, this.state.pass, this.state.name);
+    this.setState(() => {
+      return {
+        valid: false,
+      };
+    });
   };
 
   render() {

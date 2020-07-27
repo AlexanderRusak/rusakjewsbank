@@ -15,11 +15,12 @@ export default class SlickSlider extends React.Component {
     const sliders = this.props.countSliders.title.map((slide, key) => {
       return (
         <Slide
+          key={key}   
           title={slide}
           information={this.props.countSliders.information[key]}
           link={this.props.countSliders.link[key]}
           count={this.props.countSliders.title.length}
-          current={key+1}
+          current={key + 1}
         />
       );
     });

@@ -2,6 +2,7 @@ import {
   SET_DATA_IN_DATA_BASE,
   ERROR_INPUT_HANDLER,
   CLEAR_MESSAGE,
+  REGISTRATION_SUCCESS,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -20,6 +21,11 @@ export default function registration(state = initialState, action) {
         errorMessage: "",
       };
     case ERROR_INPUT_HANDLER:
+      return {
+        ...state,
+        errorMessage: action.message,
+      };
+    case REGISTRATION_SUCCESS:
       return {
         ...state,
         errorMessage: action.message,

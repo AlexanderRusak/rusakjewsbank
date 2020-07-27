@@ -24,6 +24,8 @@ export default function signIn(email, password) {
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDzNr9NyuiagPw6ZxKYVdWm12y38yhIj5o",
         authData
       );
+      console.log(response);
+
       const signInUser = response.data.localId;
 
       const fireBaseData = await Axios.get(
@@ -52,6 +54,7 @@ export default function signIn(email, password) {
       dispatch(autoLogout(data.expiresIn));
     } catch (err) {
       dispatch(clearMessage());
+      console.log(err.response.data.error.errors[0].message);
       const errorMessage = err.response.data.error.errors[0].message;
 
       switch (errorMessage) {

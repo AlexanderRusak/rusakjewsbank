@@ -20,7 +20,7 @@ export const Input = (props) => {
       {props.label && <label htmlFor={htmlFor}>{props.label}</label>}
       {props.type !== "textarea" ? (
         <input
-          value={props.value && Math.round((props.value * 100) / 100)}
+          value={props.value && props.value}
           placeholder={props.type !== "password" ? props.label : ""}
           onChange={onChangeTouched}
           id={htmlFor}

@@ -5,7 +5,7 @@ export const Slide = (props) => {
   return (
     <div className={classes.Slide}>
       <p className={classes.counter}>
-        {props.current}/{props.count}
+       {props.current}/{props.count}
       </p>
       <h1>{props.title}</h1>
       <p className={classes.information}>{props.information}</p>

@@ -1,13 +1,15 @@
-main{
-    display: flex;
-    align-items: center;
-    margin-top: 200px;
-    flex-direction: column;
-    height: 100vh;
+main {
+  display: flex;
+  align-items: center;
+  margin-top: 200px;
+  flex-direction: column;
+  height: 100vh;
 }
-main h1{
-    color:#fff;
-    align-self:center;
-    justify-self:flex-start;
+main h1 {
+  text-align: center;
+  color: #fff;
+  align-self: initial;
+  justify-self: initial;
+  font-size: 2em;
+  padding-bottom: 70px;
 }
-
