@@ -18,12 +18,12 @@ export function registration(email, password, name) {
         "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDzNr9NyuiagPw6ZxKYVdWm12y38yhIj5o",
         authData
       );
-
+      console.log(response);
       const data = {
         name,
         email,
         id: response.data.localId,
-        feedback: null,
+        feedback: " ",
       };
 
       await Axios.post(

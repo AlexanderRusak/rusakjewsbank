@@ -110,15 +110,19 @@ class Chart extends React.Component {
   componentDidMount() {
     this.props.fetchDataChart(this.state.startDate, this.state.endDate);
   }
+  renderColorfulLegendText(value, entry) {
+    const { color } = entry;
 
+    return <span style={{ color }}>{value}</span>;
+  }
   render() {
     return (
-      <Form title="График">
+      <Form title="График" width={"800px"}>
         {this.props.chartLoading ? (
           <Loader />
         ) : (
           <>
-            <ResponsiveContainer height={250} width="100%">
+            <ResponsiveContainer height={250} width="100%" color="#fff">
               <LineChart
                 margin={{ top: 10 }}
                 data={this.concatCurrenciesData(
@@ -137,12 +141,16 @@ class Chart extends React.Component {
 
                 {this.state.isRUB && <Line dataKey="rub" stroke="#2570c6" />}
                 <XAxis
+                  stroke="#fff"
                   tick={false}
                   dataKey="date"
                   padding={{ left: 30, right: 30 }}
                 />
-                <YAxis domain={["dataMin - 0.1", "dataMax + 0.5"]} />
-                <Legend />
+                <YAxis
+                  stroke="#fff"
+                  domain={["dataMin - 0.1", "dataMax + 0.5"]}
+                />
+                <Legend formatter={this.renderColorfulLegendText} />
                 <Tooltip wrapperStyle={{ top: 20, left: 0 }} />
               </LineChart>
             </ResponsiveContainer>
@@ -166,7 +174,7 @@ class Chart extends React.Component {
                 checked={this.state.isRUB}
               />
             </Checkbox>
-            <div className={classes.dateInput} >
+            <div className={classes.dateInput}>
               <DateInput
                 label={"c "}
                 onChange={this.changeDateHandler}

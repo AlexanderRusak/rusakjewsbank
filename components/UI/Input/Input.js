@@ -20,6 +20,9 @@ export const Input = (props) => {
       {props.label && <label htmlFor={htmlFor}>{props.label}</label>}
       {props.type !== "textarea" ? (
         <input
+          style={{
+            height: `${props.height ? props.height : "auto"}`,
+          }}
           value={props.value && props.value}
           placeholder={props.type !== "password" ? props.label : ""}
           onChange={onChangeTouched}
@@ -32,6 +35,9 @@ export const Input = (props) => {
           value={props.value && props.value}
           onChange={onChangeTouched}
           id={htmlFor}
+          style={{
+            height: `${props.height ? props.height : "auto"}`,
+          }}
           className={cls.join(" ")}
           rows={props.rows}
           cols={props.cols}

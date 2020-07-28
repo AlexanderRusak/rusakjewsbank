@@ -9,6 +9,7 @@ class FeedbackPage extends React.Component {
         <Feedback
           userName={this.props.userName}
           userEmail={this.props.userEmail}
+          userFeedback={this.props.userFeedback}
           isSend={(value) => {
             this.setState(() => {
               return {
@@ -17,6 +18,7 @@ class FeedbackPage extends React.Component {
             });
           }}
         />
+        {console.log(this.props.userEmail)}
       </div>
     );
   }
@@ -25,6 +27,7 @@ function mapStateToProps(state) {
   return {
     userName: state.signIn.name,
     userEmail: state.signIn.email,
+//userFeedback: state.singIn.feedback,
   };
 }
 export default connect(mapStateToProps, null)(FeedbackPage);

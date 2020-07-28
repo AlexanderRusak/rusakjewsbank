@@ -27,7 +27,7 @@ export default function signIn(email, password) {
       console.log(response);
 
       const signInUser = response.data.localId;
-
+      
       const fireBaseData = await Axios.get(
         "https://rusakjewsbank-32815.firebaseio.com/users.json"
       ).catch((err) => {
@@ -50,7 +50,15 @@ export default function signIn(email, password) {
       localStorage.setItem("expirationDate", expirationDate);
       localStorage.setItem("userName", userData[0].name);
       localStorage.setItem("userEmail", userData[0].email);
-      dispatch(authSuccess(data.idToken, userData[0].name, userData[0].email));
+      localStorage.setItem("userFeedback", userData[0].feedback);
+      dispatch(
+        authSuccess(
+          data.idToken,
+          userData[0].name,
+          userData[0].email,
+          userData[0].feedback
+        )
+      );
       dispatch(autoLogout(data.expiresIn));
     } catch (err) {
       dispatch(clearMessage());
@@ -70,12 +78,13 @@ export default function signIn(email, password) {
     }
   };
 }
-export function authSuccess(token, userName, userEmail) {
+export function authSuccess(token, userName, userEmail, userFeedback) {
   return {
     type: AUTH_SUCCESS,
     token,
     userName,
     userEmail,
+    userFeedback,
   };
 }
 export function errorInputHandler(message) {
@@ -90,6 +99,7 @@ export function logout() {
   localStorage.removeItem("expirationDate");
   localStorage.removeItem("userName");
   localStorage.removeItem("userEmail");
+  localStorage.removeItem("userFeedback");
   return {
     type: AUTH_LOGOUT,
   };
@@ -106,6 +116,7 @@ export function autoLogin() {
     const token = localStorage.getItem("token");
     const userName = localStorage.getItem("userName");
     const userEmail = localStorage.getItem("userEmail");
+    const userFeedback = localStorage.getItem("userFeedback");
     if (!token) {
       dispatch(logout());
     } else {
@@ -113,7 +124,7 @@ export function autoLogin() {
       if (expirationDate <= new Date()) {
         dispatch(logout());
       } else {
-        dispatch(authSuccess(token, userName, userEmail));
+        dispatch(authSuccess(token, userName, userEmail, userFeedback));
         dispatch(
           autoLogout((expirationDate.getTime() - new Date().getTime()) / 1000)
         );

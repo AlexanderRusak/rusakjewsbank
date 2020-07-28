@@ -141,7 +141,7 @@ class Registration extends React.Component {
               disabled={this.state.valid && this.state.isMatchPassword}
               onClick={this.registerHandler}
               type="light"
-              title="Зарегестрироваться"
+              title="Зарегистрироваться"
             />
             <Button
               disabled={true}

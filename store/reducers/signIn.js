@@ -10,6 +10,7 @@ const initialState = {
   token: null,
   name: "",
   email: "",
+  feedback: "",
   errorMessage: "",
 };
 
@@ -21,6 +22,7 @@ export default function signin(state = initialState, action) {
         token: action.token,
         name: action.userName,
         email: action.userEmail,
+        feedback: action.userFeedback,
       };
     case AUTH_LOGOUT:
       return {
@@ -28,6 +30,7 @@ export default function signin(state = initialState, action) {
         token: null,
         name: "",
         email: "",
+        feedback: "",
       };
     case SET_USERNAME:
       return {
