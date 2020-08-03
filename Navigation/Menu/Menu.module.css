@@ -7,6 +7,8 @@
   color: #fff;
   transition: opacity, left 0.22s ease-in;
   z-index: 100;
+  font-size: 40px;
+ 
 }
 .Menu:hover {
   opacity: 0.7;

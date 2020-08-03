@@ -1,6 +1,6 @@
 .MainLayout {
-/*   background-image: url("https://f24-a.akamaihd.net/sites/default/files/f24/catalog/20181104/b0d36ec69d6764b9bbbf847f1d8eedf3.jpg"); */
-   background-image: url("https://onaturmorte.ru/wp-content/uploads/2019/04/Quentin_Metsys_-_Les_usuriers.jpg");
+  background-image: url("https://f24-a.akamaihd.net/sites/default/files/f24/catalog/20181104/b0d36ec69d6764b9bbbf847f1d8eedf3.jpg");
+  /*  background-image: url("https://onaturmorte.ru/wp-content/uploads/2019/04/Quentin_Metsys_-_Les_usuriers.jpg"); */
   height: 100%;
   background-size: cover;
   background-position: center center;

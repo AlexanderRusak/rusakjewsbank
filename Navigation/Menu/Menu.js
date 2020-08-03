@@ -6,6 +6,7 @@ export const Menu = (props) => {
   if (props.isOpen) {
     cls.push("fa-times");
     cls.push(classes.open);
+
   } else {
     cls.push("fa-bars");
   }
