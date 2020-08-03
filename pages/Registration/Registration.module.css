@@ -1,9 +1,11 @@
-.Registration{
-    width:100%;
+.Registration {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.btnSection{
-    width: 100%;
-    display:flex;
-    justify-content: space-between;
-    flex-direction: row;
+.btnSection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }

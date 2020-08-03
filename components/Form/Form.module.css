@@ -1,30 +1,12 @@
 .Form {
-  min-width: 400px;
   margin-left: 10px;
   margin-right: 10px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   padding: 15px;
   padding-bottom: 20px;
-  
   margin-top: 30px;
 }
-.Form h2{
+.Form h2 {
   color: #fff;
-}
-@media screen and (max-width:1200px){
-  .Form {
-    width:350px;
-  }
-  
-}
-@media screen and (max-width:768px){
-  .Form {
-    width:300px;
-  }
-}
-@media screen and (max-width:500px){
-  .Form {
-    width:300px;
-  }
 }

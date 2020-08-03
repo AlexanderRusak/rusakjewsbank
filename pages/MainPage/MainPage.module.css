@@ -1,8 +1,6 @@
 .MainPage {
   display: flex;
-  flex-direction:column;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 50px;
 }
@@ -12,8 +10,7 @@
     width: auto;
     display: flex;
 
-    justify-content: center;
-    align-items: center;
+   
     flex-wrap: wrap;
   }
 }

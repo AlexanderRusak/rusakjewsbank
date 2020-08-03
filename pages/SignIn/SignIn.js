@@ -26,7 +26,6 @@ class SignIn extends React.Component {
       this.setState(() => {
         return { email: value };
       });
- 
   };
   onPasswordChange = (value) => {
     value.length >= 6
@@ -46,39 +45,40 @@ class SignIn extends React.Component {
   };
   render() {
     return (
-      <Form title={"Вход"}>
-        <div className={classes.SignIn}>
-          <Input
-            type="text"
-            label="Email"
-            valid={this.state.isEmail}
-            onChange={this.onEmailChange}
-          />
-          <Input
-            type="password"
-            label="Пароль"
-            
-            onChange={this.onPasswordChange}
-            valid={true}
-          />
-          <div className={classes.btnSection}>
-            <Button
-              title="Войти"
-              onClick={this.signInHandler}
-              disabled={this.state.isCorrectPassword && this.state.isEmail}
+      <div className={classes.SignIn}>
+        <Form title={"Вход"} widthCol="6">
+          <div>
+            <Input
+              type="text"
+              label="Email"
+              valid={this.state.isEmail}
+              onChange={this.onEmailChange}
             />
-            <Button
-              disabled={true}
-              title="Регистрация"
-              link={
-                <NavLink className="btn btn-light" to="registration">
-                  Регистрация
-                </NavLink>
-              }
+            <Input
+              type="password"
+              label="Пароль"
+              onChange={this.onPasswordChange}
+              valid={true}
             />
+            <div className={classes.btnSection}>
+              <Button
+                title="Войти"
+                onClick={this.signInHandler}
+                disabled={this.state.isCorrectPassword && this.state.isEmail}
+              />
+              <Button
+                disabled={true}
+                title="Регистрация"
+                link={
+                  <NavLink className="btn btn-light" to="registration">
+                    Регистрация
+                  </NavLink>
+                }
+              />
+            </div>
           </div>
-        </div>
-      </Form>
+        </Form>
+      </div>
     );
   }
 }

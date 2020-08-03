@@ -18,3 +18,5 @@ export const AUTH_LOGOUT = "AUTH_LOGOUT";
 export const SET_USERNAME = "SET_USERNAME";
 export const ERROR_INPUT_HANDLER = "ERROR_INPUT_HANDLER";
 export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
+
+export const FEEDBACK_SEND = "FEEDBACK_SEND";

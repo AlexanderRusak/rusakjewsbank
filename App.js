@@ -41,8 +41,17 @@ class App extends Component {
 
     return (
       <MainLayout>
-        {(this.props.errorMessage || this.props.message) && (
-          <Alert text={this.props.errorMessage || this.props.message} />
+        
+        {(this.props.errorMessage ||
+          this.props.message ||
+          this.props.feedback) && (
+          <Alert
+            text={
+              this.props.errorMessage ||
+              this.props.message ||
+              this.props.feedback
+            }
+          />
         )}
 
         <Layout>{routes}</Layout>
@@ -55,6 +64,7 @@ function mapStateToProps(state) {
     isAuthenticated: !!state.signIn.token,
     errorMessage: state.signIn.errorMessage,
     message: state.registration.errorMessage,
+    feedback: state.feedback.feedbackMessage,
   };
 }
 function mapDispatchToProps(dispatch) {

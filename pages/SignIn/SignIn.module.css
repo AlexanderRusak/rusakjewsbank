@@ -1,6 +1,7 @@
 .SignIn{
   width:100%;
-  
+  display: flex;
+  justify-content:center;
 }
 .btnSection{
     width: 100%;

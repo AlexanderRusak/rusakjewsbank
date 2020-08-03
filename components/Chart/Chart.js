@@ -117,7 +117,7 @@ class Chart extends React.Component {
   }
   render() {
     return (
-      <Form title="График" width={"800px"}>
+      <Form title="График" widthCol="8" positionSelf="center" >
         {this.props.chartLoading ? (
           <Loader />
         ) : (

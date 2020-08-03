@@ -7,7 +7,7 @@ import { Form } from "../../components/Form/Form";
 import { Button } from "../../components/UI/Button/Button";
 import { Input } from "../../components/UI/Input/Input";
 import { Label } from "../UI/Label/Label";
-import Axios from "axios";
+/* import Axios from "axios"; */
 
 export default function Feedback(props) {
   const [email, setEmail] = useState(props.userEmail);
@@ -27,10 +27,7 @@ export default function Feedback(props) {
       from_name: userName,
       message_html: messageText,
     };
-
-    console.log(feedback);
-
-    /*      emailjs
+    emailjs
       .send(
         "default_service",
         "template_4FlX60QA",
@@ -41,14 +38,14 @@ export default function Feedback(props) {
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
           setFeedback(feedback);
-          props.isSend(true);
+          props.isSend(feedback);
         },
         (err) => {
           console.log("FAILED...", err);
           props.isSend(false);
           setFeedback("Вы пока что не оставили отзыв");
         }
-      );  */
+      );
     /* const signInUser = localStorage.getItem("userId");
 
     const fireBaseData = await Axios.get(

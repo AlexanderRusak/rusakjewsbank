@@ -55,7 +55,7 @@ class CurrencyConverter extends React.Component {
   }
   render() {
     return (
-      <Form title="Конвертер валют">
+      <Form title="Конвертер валют" widthCol="4">
         {this.props.loading ? (
           <Loader />
         ) : (

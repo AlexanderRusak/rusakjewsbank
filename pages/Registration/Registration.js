@@ -14,7 +14,7 @@ class Registration extends React.Component {
     name: "",
     email: "",
     pass: "",
-    
+
     valid: false,
     //// for local state
 
@@ -113,44 +113,46 @@ class Registration extends React.Component {
 
   render() {
     return (
-      <Form title="Регистрация">
-        <div className={classes.Registration}>
-          <Input label="Имя" valid={true} onChange={this.nameHandler} />
-          <Input
-            label="Электронная почта"
-            onChange={this.validEmailHandler}
-            valid={this.state.isValidEmail}
-            errorMessage="Неверный формат электронной почты"
-          />
-          <Input
-            type="password"
-            label="Придумайте пароль"
-            onChange={this.validPasswordHandler}
-            valid={this.state.isPass}
-            errorMessage={this.state.errorMessage}
-          />
-          <Input
-            type="password"
-            label="Потвердите пароль"
-            onChange={this.checkPasswordHandler}
-            valid={this.state.isMatchPassword}
-            errorMessage="Пароли должны совпадать"
-          />
-          <div className={classes.btnSection}>
-            <Button
-              disabled={this.state.valid && this.state.isMatchPassword}
-              onClick={this.registerHandler}
-              type="light"
-              title="Зарегистрироваться"
+      <div className={classes.Registration}>
+        <Form title="Регистрация" widthCol="6">
+          <div>
+            <Input label="Имя" valid={true} onChange={this.nameHandler} />
+            <Input
+              label="Электронная почта"
+              onChange={this.validEmailHandler}
+              valid={this.state.isValidEmail}
+              errorMessage="Неверный формат электронной почты"
             />
-            <Button
-              disabled={true}
-              type="light"
-              link={<NavLink to="/SignIn">Войти</NavLink>}
+            <Input
+              type="password"
+              label="Придумайте пароль"
+              onChange={this.validPasswordHandler}
+              valid={this.state.isPass}
+              errorMessage={this.state.errorMessage}
             />
+            <Input
+              type="password"
+              label="Потвердите пароль"
+              onChange={this.checkPasswordHandler}
+              valid={this.state.isMatchPassword}
+              errorMessage="Пароли должны совпадать"
+            />
+            <div className={classes.btnSection}>
+              <Button
+                disabled={this.state.valid && this.state.isMatchPassword}
+                onClick={this.registerHandler}
+                type="light"
+                title="Зарегистрироваться"
+              />
+              <Button
+                disabled={true}
+                type="light"
+                link={<NavLink to="/SignIn">Войти</NavLink>}
+              />
+            </div>
           </div>
-        </div>
-      </Form>
+        </Form>
+      </div>
     );
   }
 }

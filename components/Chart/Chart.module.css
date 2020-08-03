@@ -3,25 +3,25 @@
   flex-direction: row;
 }
 .dateInput {
-  display:flex;
-  width: 80%;
+  display: flex;
+  justify-content: space-around;
 }
 .dateInput div label {
-    color:#fff;
+  color: #fff;
 }
 
-@media screen and (max-width:1200px){
-    .dateInput {
-        justify-content:flex-end;
-        flex-wrap: wrap;
-    }
-    .dateInput div{
-        margin-top: 10px;
-    }
-}
-@media screen and (max-width:500px){
-    .dateInput {
-        display:flex;
-        width:auto;
-      }
+@media screen and (max-width: 1200px) {
+  .dateInput {
+    justify-content: flex-end;
+    flex-wrap: wrap;
   }
+  .dateInput div {
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .dateInput {
+    display: flex;
+    width: auto;
+  }
+}
